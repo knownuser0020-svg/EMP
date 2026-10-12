@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -euo pipefail
+repo_dir="$(cd "$(dirname "$0")/.." && pwd)"
+if ! command -v javac >/dev/null && [[ -x /workspace/.tools/jdk-21.0.9+10/bin/javac ]]; then
+ export JAVA_HOME=/workspace/.tools/jdk-21.0.9+10
+ export PATH="$JAVA_HOME/bin:$PATH"
+fi
+if [[ -n "${HTTPS_PROXY:-}" && -r /etc/ssl/certs/java/cacerts ]]; then export MAVEN_OPTS="${MAVEN_OPTS:-} -Djavax.net.ssl.trustStore=/etc/ssl/certs/java/cacerts"; fi
+version=3.9.11
+tool_root="${EMS_TOOLS_DIR:-$repo_dir/.local/tools}"
+maven_dir="$tool_root/apache-maven-$version"
+if [[ ! -x "$maven_dir/bin/mvn" ]]; then
+ mkdir -p "$tool_root"
+ archive="$(mktemp)"
+ checksum="$(mktemp)"
+ trap 'rm -f "$archive" "$checksum"' EXIT
+ url="https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/$version/apache-maven-$version-bin.tar.gz"
+ curl -fsSL "$url" -o "$archive"
+ curl -fsSL "$url.sha512" -o "$checksum"
+ printf '%s  %s\n' "$(cat "$checksum")" "$archive" | sha512sum --check --status
+ tar -xzf "$archive" -C "$tool_root"
+fi
+args=("-Dmaven.repo.local=$repo_dir/.local/m2")
+if [[ -r "$repo_dir/.local/maven-settings.xml" ]]; then args+=(--settings "$repo_dir/.local/maven-settings.xml"); fi
+exec "$maven_dir/bin/mvn" "${args[@]}" "$@"

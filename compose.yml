@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:17.6-alpine
+    environment:
+      POSTGRES_DB: forma
+      POSTGRES_USER: forma
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:?Run scripts/local-env.sh first}
+    ports:
+      - '127.0.0.1:5432:5432'
+    volumes:
+      - forma-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL','pg_isready -U forma -d forma']
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+volumes:
+  forma-postgres:

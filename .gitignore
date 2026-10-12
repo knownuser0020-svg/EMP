@@ -1,0 +1,13 @@
+node_modules/
+dist/
+dist-electron/
+release/
+target/
+.env
+.env.*
+!.env.example
+.local/
+*.log
+test-results/
+playwright-report/
+.DS_Store

@@ -1,0 +1,20 @@
+{
+  "name": "ems-admin-client",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Forma admin desktop client",
+  "author": "Forma",
+  "type": "module",
+  "main": "dist-electron/main.cjs",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5173",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@ems/shared": "1.0.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "lucide-react": "0.548.0",
+    "zustand": "5.0.8"
+  }
+}

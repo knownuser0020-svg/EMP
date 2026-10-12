@@ -1,0 +1,16 @@
+appId: team.forma.admin
+productName: Forma Admin
+directories:
+  app: ems-admin-client
+  output: release/admin
+files:
+  - dist/**/*
+  - dist-electron/**/*
+  - package.json
+asar: true
+win:
+  target: nsis
+  artifactName: Admin.exe
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true

@@ -1,0 +1,366 @@
+.employee-shell {
+  margin: 17px;
+  background:
+    radial-gradient(ellipse at 70% 10%, #fff9e8, transparent 70%), #f5ecdc;
+  border: 1px solid #fffaf0;
+  border-radius: 28px;
+  min-height: calc(100dvh - 34px);
+  padding: 0 35px;
+}
+.employee-header {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  height: 86px;
+  border-bottom: 1px solid #e4d6be66;
+}
+.employee-space {
+  font-size: 8px;
+  letter-spacing: 1.6px;
+  color: #b2a080;
+}
+.employee-space b {
+  font-size: 6px;
+  letter-spacing: 0.7px;
+  margin-left: 8px;
+  background: #ebe0c9;
+  padding: 3px 5px;
+  border-radius: 4px;
+  font-weight: 400;
+}
+.employee-profile {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.employee-profile > span {
+  font-size: 11px;
+  color: #8e7d60;
+}
+.employee-main {
+  max-width: 1090px;
+  margin: 0 auto;
+  padding: 36px 0 0;
+}
+.employee-greeting .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 8px;
+}
+.employee-greeting h1 {
+  font-size: 29px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 13px;
+  letter-spacing: -1px;
+}
+.employee-greeting h1 svg {
+  color: #cbb477;
+  stroke-width: 1;
+}
+.employee-greeting > p {
+  font-size: 11px;
+  color: #a39376;
+  margin-top: 10px;
+}
+.employee-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.16fr;
+  gap: 22px;
+  margin-top: 30px;
+}
+.employee-grid > .surface {
+  padding: 24px;
+}
+.employee-grid h2 {
+  font-size: 16px;
+}
+.clock-card {
+  text-align: center;
+}
+.clock-card .section-heading {
+  text-align: left;
+}
+.clock-visual {
+  width: 102px;
+  height: 102px;
+  margin: 26px auto 20px;
+  border: 1px solid #e5dbc7;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  box-shadow:
+    inset 3px 3px 8px #d7cbb538,
+    inset -3px -3px 8px #fffefa;
+  background: #f1e9d9;
+}
+.clock-visual > div {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #e2e6d2, #cdd9bf);
+  color: #8ea479;
+  box-shadow:
+    5px 5px 10px #c8bca166,
+    -5px -5px 10px #fffef1;
+}
+.clock-active {
+  border-color: #a9b697;
+}
+.work-timer {
+  font-size: 47px;
+  letter-spacing: 1px;
+  font-variant-numeric: tabular-nums;
+  color: #645b46;
+  line-height: 1.5;
+}
+.clock-card > p {
+  font-size: 10px;
+  color: #ad9e82;
+  margin-top: 2px;
+}
+.clock-button {
+  margin-top: 23px;
+  min-width: 174px;
+  padding: 12px 18px;
+  font-size: 11px;
+}
+.clock-out {
+  background: #9e886a;
+  border-color: #af997b;
+}
+.monitor-setting {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border-top: 1px solid #e8dcc655;
+  padding-top: 19px;
+  margin-top: 27px;
+  text-align: left;
+  color: #a89b7c;
+}
+.monitor-setting > div {
+  flex: 1;
+}
+.monitor-setting strong {
+  display: block;
+  font-size: 10px;
+  font-weight: 500;
+  color: #94866a;
+}
+.monitor-setting > div > span {
+  display: block;
+  font-size: 7px;
+  margin-top: 4px;
+}
+.employee-tasks .section-heading {
+  margin-bottom: 16px;
+}
+.task-total {
+  font-size: 27px;
+  color: #829575;
+  letter-spacing: -1px;
+}
+.task-total small {
+  font-size: 12px;
+  color: #b2a484;
+}
+.employee-progress {
+  height: 4px;
+  background: #e7dcc5;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 19px;
+}
+.employee-progress > span {
+  height: 100%;
+  display: block;
+  background: #a8b591;
+}
+.employee-tasks .task-list {
+  max-height: 365px;
+  overflow: auto;
+}
+.employee-tasks .task-item {
+  padding: 10px 12px;
+  font-size: 10px;
+}
+.employee-leaves {
+  grid-column: 1/-1;
+}
+.employee-leave-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.employee-leave-list > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f7efdf;
+  padding: 13px;
+  border-radius: 10px;
+}
+.leave-type-icon {
+  width: 39px;
+  height: 39px;
+  display: grid;
+  place-items: center;
+  background: #e3e6ce;
+  border-radius: 11px;
+  color: #91a176;
+}
+.employee-leave-list strong {
+  font-size: 12px;
+  font-weight: 500;
+}
+.employee-leave-list p {
+  font-size: 9px;
+  color: #a5977c;
+  margin-top: 5px;
+}
+.employee-leave-list .status-badge {
+  margin-left: auto;
+}
+.leave-empty {
+  text-align: center;
+  padding: 20px;
+}
+.leave-empty > div {
+  color: #b8a77f;
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #ede5d0;
+  margin: 0 auto 15px;
+}
+.leave-empty h3 {
+  font-size: 13px;
+  font-weight: 500;
+}
+.leave-empty p {
+  font-size: 10px;
+  color: #ac9d7f;
+  margin-top: 8px;
+}
+.employee-note {
+  grid-column: 1/-1;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: linear-gradient(130deg, #e7ead7, #eee9d8);
+}
+.employee-note > svg {
+  flex-shrink: 0;
+  color: #9caa86;
+}
+.employee-note > svg:last-child {
+  margin-left: auto;
+}
+.employee-note p {
+  font-size: 10px;
+  color: #a39677;
+  line-height: 1.8;
+  margin-top: 7px;
+}
+.employee-footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 8px;
+  color: #af9f80;
+  padding: 25px 4px;
+}
+.employee-footer > span {
+  margin-left: auto;
+}
+.privacy-copy {
+  font-size: 12px;
+  line-height: 1.9;
+  color: #9c8d72;
+}
+.privacy-copy > svg {
+  color: #9ead89;
+  margin-bottom: 15px;
+}
+.privacy-copy p + p {
+  margin-top: 15px;
+}
+.lock-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: #f7efdf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+}
+.lock-screen > svg {
+  color: #a9b18d;
+}
+.lock-screen h1 {
+  font-size: 28px;
+}
+@media (max-width: 800px) {
+  .employee-shell {
+    margin: 0;
+    border-radius: 0;
+    min-height: 100dvh;
+    padding: 0 18px;
+  }
+  .employee-header {
+    height: 73px;
+  }
+  .employee-space {
+    display: none;
+  }
+  .employee-grid {
+    gap: 16px;
+    grid-template-columns: 1fr;
+  }
+  .employee-greeting h1 {
+    font-size: 24px;
+    line-height: 1.5;
+  }
+  .employee-greeting h1 svg {
+    display: none;
+  }
+  .employee-main {
+    padding-top: 27px;
+  }
+  .employee-leaves,
+  .employee-note {
+    grid-column: auto;
+  }
+  .employee-profile > span {
+    display: none;
+  }
+  .employee-grid > .surface {
+    padding: 21px;
+  }
+  .employee-leaves .section-heading {
+    flex-wrap: wrap;
+  }
+  .employee-leaves .soft-button {
+    font-size: 9px;
+  }
+  .employee-note > svg:last-child,
+  .employee-footer > span {
+    display: none;
+  }
+  .employee-greeting > p {
+    font-size: 10px;
+  }
+  .work-timer {
+    font-size: 50px;
+  }
+}

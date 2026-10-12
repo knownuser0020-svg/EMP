@@ -1,0 +1,18 @@
+appId: team.forma.employee
+productName: Forma Employee
+directories:
+  app: ems-employee-client
+  output: release/employee
+files:
+  - dist/**/*
+  - dist-electron/**/*
+  - package.json
+asar: true
+win:
+  target: nsis
+  artifactName: Employee.exe
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+asarUnpack:
+  - "**/uiohook-napi/**"

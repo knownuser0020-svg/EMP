@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Admin-Windows-x64.zip",
+    "sha256": "6fbe5c6c370822d54f3427fa0a51c0ca6089165eef5039eb4deedc881ad293dc",
+    "parts": [
+      "Admin-Windows-x64.zip.part-01",
+      "Admin-Windows-x64.zip.part-02",
+      "Admin-Windows-x64.zip.part-03",
+      "Admin-Windows-x64.zip.part-04"
+    ]
+  },
+  {
+    "name": "Employee-Windows-x64.zip",
+    "sha256": "3f939fa0221420a608b03460e7aa71ee25d4a15443e209aeb10f382afc26b135",
+    "parts": [
+      "Employee-Windows-x64.zip.part-01",
+      "Employee-Windows-x64.zip.part-02",
+      "Employee-Windows-x64.zip.part-03",
+      "Employee-Windows-x64.zip.part-04"
+    ]
+  }
+]

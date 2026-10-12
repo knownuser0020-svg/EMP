@@ -1,0 +1,18 @@
+CREATE TABLE employees(id UUID PRIMARY KEY,name VARCHAR(100) NOT NULL,email VARCHAR(254) NOT NULL UNIQUE,password_hash VARCHAR(255) NOT NULL,title VARCHAR(100) NOT NULL,department VARCHAR(60) NOT NULL,role VARCHAR(20) NOT NULL CHECK(role IN('ADMIN','EMPLOYEE')),status VARCHAR(20) NOT NULL,avatar INTEGER NOT NULL DEFAULT 1,auth_version BIGINT NOT NULL DEFAULT 0);
+CREATE INDEX idx_employee_email ON employees(email);
+CREATE UNIQUE INDEX uk_employee_email_lower ON employees(LOWER(email));
+CREATE INDEX idx_employee_department ON employees(department);
+CREATE TABLE leave_requests(id UUID PRIMARY KEY,version BIGINT NOT NULL DEFAULT 0,employee_id UUID NOT NULL REFERENCES employees(id),type VARCHAR(20) NOT NULL,start_date DATE NOT NULL,end_date DATE NOT NULL,status VARCHAR(20) NOT NULL,reason VARCHAR(500),CONSTRAINT check_leave_dates CHECK(end_date>=start_date),CONSTRAINT check_leave_status CHECK(status IN('Pending','Approved','Rejected')));
+CREATE INDEX idx_leave_employee_dates ON leave_requests(employee_id,start_date,end_date);
+CREATE INDEX idx_leave_status ON leave_requests(status);
+CREATE TABLE attendance(id UUID PRIMARY KEY,employee_id UUID NOT NULL REFERENCES employees(id),log_date DATE NOT NULL,clock_in TIMESTAMP WITH TIME ZONE NOT NULL,clock_out TIMESTAMP WITH TIME ZONE,CONSTRAINT check_attendance_dates CHECK(clock_out IS NULL OR clock_out>=clock_in));
+CREATE INDEX idx_attendance_employee_log_date ON attendance(employee_id,log_date);
+CREATE INDEX idx_attendance_log_date ON attendance(log_date);
+CREATE UNIQUE INDEX uk_attendance_open_shift ON attendance(employee_id) WHERE clock_out IS NULL;
+CREATE TABLE activity_logs(id UUID PRIMARY KEY,batch_id UUID NOT NULL,employee_id UUID NOT NULL REFERENCES employees(id),log_date DATE NOT NULL,started_at TIMESTAMP WITH TIME ZONE NOT NULL,ended_at TIMESTAMP WITH TIME ZONE NOT NULL,keyboard_events INTEGER NOT NULL CHECK(keyboard_events>=0),mouse_events INTEGER NOT NULL CHECK(mouse_events>=0),idle_seconds INTEGER NOT NULL CHECK(idle_seconds>=0),screenshot_url VARCHAR(1024),CONSTRAINT uk_activity_batch UNIQUE(employee_id,batch_id),CONSTRAINT check_activity_dates CHECK(ended_at>started_at));
+CREATE INDEX idx_activity_employee_log_date ON activity_logs(employee_id,log_date);
+CREATE INDEX idx_activity_log_date ON activity_logs(log_date);
+CREATE TABLE onboarding_tasks(id UUID PRIMARY KEY,employee_id UUID NOT NULL REFERENCES employees(id),label VARCHAR(150) NOT NULL,done BOOLEAN NOT NULL DEFAULT FALSE,sort_order INTEGER NOT NULL);
+CREATE INDEX idx_task_employee ON onboarding_tasks(employee_id);
+CREATE TABLE workspace_events(id UUID PRIMARY KEY,title VARCHAR(150) NOT NULL,description VARCHAR(500) NOT NULL,event_date DATE NOT NULL,event_time VARCHAR(50) NOT NULL,attendees INTEGER NOT NULL,tag VARCHAR(30));
+CREATE INDEX idx_event_date ON workspace_events(event_date);
