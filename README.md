@@ -1,5 +1,7 @@
 # Forma · Enterprise EMS
 
+**Download everything:** click **Code → Download ZIP** in this GitHub repository. Extract the ZIP, then double-click `PREPARE-WINDOWS-BUNDLES.cmd` to reconstruct and verify both Windows bundles. Follow [the step-by-step download guide](DOWNLOAD-GUIDE.md). The `downloads` folder also contains a source-only ZIP.
+
 A decoupled employee management monorepo with a Spring Boot/PostgreSQL API and independent Electron/React applications. The cream dashboard follows the provided absence-calendar reference, with soft shadows, self-hosted Plus Jakarta Sans, amber events, onboarding cards, and a blue glass workspace helper.
 
 ```text

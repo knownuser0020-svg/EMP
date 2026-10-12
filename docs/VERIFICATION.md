@@ -27,4 +27,4 @@ The Windows ZIP bundles contain `Admin.exe` / `Employee.exe` plus their complete
 
 `npm audit` found zero high/critical issues and eight moderate reports in the desktop build dependency chain, originating from an unpatched `sprintf-js` precision-formatting issue. Runtime workspace dependencies have zero reported vulnerabilities (`npm audit --omit=dev`). No verification checks, TLS checks, or artifact checksums were disabled.
 
-The protected private `.env`, proxy settings, telemetry queues, caches, dependency directories, and failed intermediate artifacts are excluded from the source archive. The repository has not been pushed to GitHub. Review and publish the environment configuration to retain its prepared snapshot.
+The protected private `.env`, proxy settings, telemetry queues, caches, dependency directories, and failed intermediate artifacts are excluded from the source archive. The source and verified Windows bundle parts are published to the GitHub EMP repository. Review and publish the environment configuration to retain its prepared snapshot.
